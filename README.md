@@ -66,7 +66,7 @@ The project enforces consistent code style using **ESLint + Prettier**.
 
 ## 🛠️ Roadmap
 
-- [ ] Base layout
+- [x] Base layout
 - [ ] Projects section
 - [ ] About me section
 - [ ] Scroll to section system
