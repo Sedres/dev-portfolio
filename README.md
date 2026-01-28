@@ -1,4 +1,4 @@
-````md
+
 # 🎨 dev-portfolio
 
 Personal portfolio in development built with **Vue 3**, focused on showcasing projects, skills, and modern frontend best practices.
