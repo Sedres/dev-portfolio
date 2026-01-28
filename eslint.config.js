@@ -8,6 +8,7 @@ export default defineConfig([
   {
     name: 'app/files-to-lint',
     files: ['**/*.{vue,js,mjs,jsx}'],
+    extends: ['./.eslintrc-auto-import.json'],
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
