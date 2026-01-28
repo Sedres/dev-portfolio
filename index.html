@@ -1,13 +1,28 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./src/css/loadingScreen.css" as="style" />
+    <link rel="stylesheet" href="./src/css/loadingScreen.css" />
     <title>Portfolio • Alin</title>
   </head>
   <body>
-    <div id="app" role="main"></div>
+    <div id="app" role="main">
+      <div id="loadingScreen" class="loading">
+        <svg width="64px" height="48px">
+          <polyline
+            points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"
+            id="back"
+          ></polyline>
+          <polyline
+            points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"
+            id="front"
+          ></polyline>
+        </svg>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
