@@ -1,44 +1,85 @@
-# dev-portfolio
+````md
+# 🎨 dev-portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+Personal portfolio in development built with **Vue 3**, focused on showcasing projects, skills, and modern frontend best practices.
 
-## Recommended IDE Setup
+> ⚠️ This project is currently in an early stage. At the moment, it only includes the base project setup and code quality tools.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Recommended Browser Setup
+## 🧱 Current stack
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- ⚡ **Vue 3**
+- 📦 **Vite**
+- 🧹 **ESLint** (static code analysis)
+- 🎨 **Prettier** (automatic code formatting)
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 🚀 Installation & usage
 
-## Project Setup
+### 1️⃣ Clone the repository
 
-```sh
+```bash
+git clone https://github.com/Sedres/dev-portfolio.git
+cd dev-portfolio
+```
+````
+
+### 2️⃣ Install dependencies
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 3️⃣ Development server
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+The app will be available at:
 
-```sh
-npm run build
+```
+http://localhost:5173
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+---
 
-```sh
+## 🧹 Code quality
+
+### Lint
+
+```bash
 npm run lint
 ```
+
+### Format
+
+```bash
+npm run format
+```
+
+The project enforces consistent code style using **ESLint + Prettier**.
+
+---
+
+## 🛠️ Roadmap
+
+- [ ] Base layout
+- [ ] Projects section
+- [ ] About me section
+- [ ] Scroll to section system
+- [ ] Responsive design
+
+---
+
+## 👤 Author
+
+- GitHub: [Sedres](https://github.com/Sedres)
+
+---
+
+## 📄 License
+
+This project is for personal use.
