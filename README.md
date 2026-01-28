@@ -11,6 +11,8 @@ Personal portfolio in development built with **Vue 3**, focused on showcasing pr
 
 - ⚡ **Vue 3**
 - 📦 **Vite**
+- 🧩 **Vuetify** (vue components)
+- 🪄 **unplugin-auto-import** (automatic imports)
 - 🧹 **ESLint** (static code analysis)
 - 🎨 **Prettier** (automatic code formatting)
 
