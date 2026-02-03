@@ -26,7 +26,7 @@ Personal portfolio in development built with **Vue 3**, focused on showcasing pr
 git clone https://github.com/Sedres/dev-portfolio.git
 cd dev-portfolio
 ```
-````
+
 
 ### 2️⃣ Install dependencies
 
