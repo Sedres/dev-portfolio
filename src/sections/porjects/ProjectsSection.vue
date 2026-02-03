@@ -12,7 +12,15 @@
 
     <v-container class="projects-container">
       <v-row class="projects-grid" justify="center" align="stretch" dense>
-        <v-col v-for="project in projectsList" :key="project.id" cols="12" sm="6" md="5" lg="3">
+        <v-col
+          v-for="project in projectsList"
+          :key="project.id"
+          cols="12"
+          sm="6"
+          md="5"
+          lg="4"
+          xl="3"
+        >
           <ProjectCard :project="project" />
         </v-col>
       </v-row>
