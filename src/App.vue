@@ -2,7 +2,8 @@
 import Navbar from '@/components/navbar/NavBar.vue'
 
 import HeroSection from '@/sections/hero/HeroSection.vue';
-import ProjectsSection from './sections/porjects/ProjectsSection.vue';
+import ProjectsSection from '@/sections/porjects/ProjectsSection.vue';
+import ContactSection from '@/sections/contact/ContactSection.vue';
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import ProjectsSection from './sections/porjects/ProjectsSection.vue';
     <Navbar />
     <HeroSection />
   <ProjectsSection />
+  <ContactSection />
   <section id="contact"></section>
   </div>
 </template>
