@@ -1,0 +1,21 @@
+{
+  "profileConfig": {
+    "name": "Alin Calauz",
+    "role": "Full-Stack Developer"
+  },
+
+  "navList": [
+    {
+      "id": "projects",
+      "label": "Projects",
+      "section": "projects",
+      "icon": "mdi-briefcase-outline"
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "section": "contact",
+      "icon": "mdi-email-outline"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "title": "Projects",
+  "description": "List of projects I've worked on.",
+  "projectsList": [
+    {
+      "name": "FiveM Modern Loading Screen",
+      "description": "A sleek and fully customizable loading screen for your FiveM server! Designed with aesthetics and functionality in mind, this loading screen will enhance your players' experience while they wait to load into your server.",
+      "tech": [
+        {
+          "name": "TypeScript",
+          "icon": "mdi-language-typescript"
+        },
+        {
+          "name": "Vue",
+          "icon": "mdi-vuejs"
+        },
+        {
+          "name": "Vuetify",
+          "icon": "mdi-vuetify"
+        },
+        {
+          "name": "Lua",
+          "icon": "mdi-language-lua"
+        }
+      ],
+      "url": "https://github.com/Sedres/w_loading",
+
+      "images": [
+        "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/hotel.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      ]
+    },
+    {
+      "name": "FiveM Modern Loading Screen",
+      "description": "A sleek and fully customizable loading screen for your FiveM server! Designed with aesthetics and functionality in mind, this loading screen will enhance your players' experience while they wait to load into your server.",
+      "tech": [
+        {
+          "name": "TypeScript",
+          "icon": "mdi-language-typescript"
+        },
+        {
+          "name": "Vue",
+          "icon": "mdi-vuejs"
+        },
+        {
+          "name": "Vuetify",
+          "icon": "mdi-vuetify"
+        },
+        {
+          "name": "Lua",
+          "icon": "mdi-language-lua"
+        }
+      ],
+      "url": "https://github.com/Sedres/w_loading",
+
+      "images": [
+        "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/hotel.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      ]
+    },
+    {
+      "name": "FiveM Modern Loading Screen",
+      "description": "A sleek and fully customizable loading screen for your FiveM server! Designed with aesthetics and functionality in mind, this loading screen will enhance your players' experience while they wait to load into your server.",
+      "tech": [
+        {
+          "name": "TypeScript",
+          "icon": "mdi-language-typescript"
+        },
+        {
+          "name": "Vue",
+          "icon": "mdi-vuejs"
+        },
+        {
+          "name": "Vuetify",
+          "icon": "mdi-vuetify"
+        },
+        {
+          "name": "Lua",
+          "icon": "mdi-language-lua"
+        }
+      ],
+      "url": "https://github.com/Sedres/w_loading",
+
+      "images": [
+        "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/hotel.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      ]
+    },
+    {
+      "name": "FiveM Modern Loading Screen",
+      "description": "A sleek and fully customizable loading screen for your FiveM server! Designed with aesthetics and functionality in mind, this loading screen will enhance your players' experience while they wait to load into your server.",
+      "tech": [
+        {
+          "name": "TypeScript",
+          "icon": "mdi-language-typescript"
+        },
+        {
+          "name": "Vue",
+          "icon": "mdi-vuejs"
+        },
+        {
+          "name": "Vuetify",
+          "icon": "mdi-vuetify"
+        },
+        {
+          "name": "Lua",
+          "icon": "mdi-language-lua"
+        }
+      ],
+      "url": "https://github.com/Sedres/w_loading",
+
+      "images": [
+        "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/hotel.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      ]
+    }
+  ]
+}

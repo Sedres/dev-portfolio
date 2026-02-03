@@ -1,0 +1,58 @@
+{
+  "toolboxList": [
+    {
+      "name": "JavaScript",
+      "icon": "mdi-language-javascript"
+    },
+    {
+      "name": "Node.js",
+      "icon": "mdi-nodejs"
+    },
+    {
+      "name": "Express",
+      "icon": "mdi-nodejs"
+    },
+
+    {
+      "name": "Discord.js",
+      "icon": "mdi-nodejs"
+    },
+    {
+      "name": "Vue",
+      "icon": "mdi-vuejs"
+    },
+    {
+      "name": "Vuetify",
+      "icon": "mdi-vuetify"
+    },
+
+    {
+      "name": "MongoDB",
+      "icon": "mdi-database"
+    },
+    {
+      "name": "MySQL",
+      "icon": "mdi-database"
+    },
+    {
+      "name": "Git",
+      "icon": "mdi-git"
+    },
+    {
+      "name": "GitHub",
+      "icon": "mdi-github"
+    },
+    {
+      "name": "Lua",
+      "icon": "mdi-language-lua"
+    }
+  ],
+  "buttonsList": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "url": "https://github.com/Sedres",
+      "icon": "mdi-github"
+    }
+  ]
+}
