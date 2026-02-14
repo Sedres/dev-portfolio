@@ -1,37 +1,23 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="NavBar">
-    <ProfileCard :active-nav-id="activeNavId" :is-mobile="isMobile" @scroll-to="scrollTo" />
-    <ItemMenu :activeNavId="activeNavId" :is-mobile="isMobile" @scroll-to="scrollTo" />
+    <ProfileCard :active-nav-id="activeSection" :is-mobile="isMobile" @scroll-to="scrollTo" />
+    <ItemMenu :activeNavId="activeSection" :is-mobile="isMobile" @scroll-to="scrollTo" />
   </nav>
 </template>
 
 <script setup>
+import { computed, ref } from 'vue'
 import ProfileCard from './components/ProfileCard.vue'
 import ItemMenu from './components/ItemMenu.vue'
-const activeNavId = ref('hero')
+import { navList } from '@/config/nav.json'
+import { useScrollSpy } from './composables/useScrollSpy'
+
 const viewportWidth = ref(window.innerWidth)
 const isMobile = computed(() => viewportWidth.value <= 600)
 
-function scrollTo(sectionId) {
-  activeNavId.value = sectionId
+const sectionIds = ['hero', ...navList.map((item) => item.section || item.id)]
 
-  if (sectionId === 'hero') {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    return
-  }
-
-  document.getElementById(sectionId)?.scrollIntoView({
-    behavior: 'smooth',
-    block: 'center',
-  })
-}
-
-function onResize() {
-  viewportWidth.value = window.innerWidth
-}
-
-onMounted(() => window.addEventListener('resize', onResize, { passive: true }))
-onBeforeUnmount(() => window.removeEventListener('resize', onResize))
+const { activeSection, scrollTo } = useScrollSpy(sectionIds)
 </script>
 
 <style scoped>
