@@ -1,8 +1,19 @@
 <template>
   <v-card class="contact-card" theme="dark" variant="text">
-    <v-card-title class="contact-card-title"> Send me a message </v-card-title>
+    <v-card-title class="contact-card-title">Send me a message</v-card-title>
 
     <v-card-text>
+      <AppNotification
+        v-model="notification.isOpen"
+        :type="notification.type"
+        :title="notification.title"
+        :message="notification.message"
+        :timeout="notification.timeout"
+        :location="notification.location"
+        :show-icon="notification.showIcon"
+        :icon="notification.icon"
+      />
+
       <v-form v-model="isValid" class="contact-form" @submit.prevent="submit">
         <v-row dense>
           <v-col cols="12" sm="6">
@@ -61,9 +72,7 @@
               Send
             </v-btn>
 
-            <span v-if="status.type" :class="['contact-status', `is-${status.type}`]">
-              {{ status.message }}
-            </span>
+            <span v-if="isSending" class="sending-hint">Sending…</span>
           </v-col>
         </v-row>
       </v-form>
@@ -72,6 +81,9 @@
 </template>
 
 <script setup>
+import { reactive, ref } from 'vue'
+import AppNotification from '@/app/components/AppNotification.vue'
+
 const form = reactive({
   name: '',
   email: '',
@@ -82,27 +94,45 @@ const form = reactive({
 const isValid = ref(false)
 const isSending = ref(false)
 
-const status = reactive({
-  type: '',
+const notification = reactive({
+  isOpen: false,
+  type: 'info', // 'info' | 'success' | 'warning' | 'error'
+  title: '',
   message: '',
+  location: 'bottom',
+  timeout: 3500,
+  showIcon: true,
+  icon: 'mdi-information-outline',
 })
+
+const iconByType = {
+  info: 'mdi-information-outline',
+  success: 'mdi-check-circle-outline',
+  warning: 'mdi-alert-outline',
+  error: 'mdi-close-circle-outline',
+}
+
+function openNotification(type, title, message, timeout = 3500) {
+  notification.type = type
+  notification.title = title
+  notification.message = message
+  notification.timeout = timeout
+  notification.icon = iconByType[type] ?? iconByType.info
+
+  // re-open si ya estaba abierto
+  notification.isOpen = false
+  requestAnimationFrame(() => {
+    notification.isOpen = true
+  })
+}
 
 const rules = {
   required: (value) => (!!value && String(value).trim().length > 0) || 'Required field',
-
   min2: (value) => String(value || '').trim().length >= 2 || 'Minimum 2 characters',
-
   min3: (value) => String(value || '').trim().length >= 3 || 'Minimum 3 characters',
-
   min10: (value) => String(value || '').trim().length >= 10 || 'Minimum 10 characters',
-
   email: (value) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || '').trim()) || 'Invalid email',
-}
-
-function resetStatus() {
-  status.type = ''
-  status.message = ''
 }
 
 function resetForm() {
@@ -113,8 +143,7 @@ function resetForm() {
 }
 
 async function submit() {
-  resetStatus()
-  if (!isValid.value) return
+  if (!isValid.value || isSending.value) return
 
   try {
     isSending.value = true
@@ -133,15 +162,21 @@ async function submit() {
 
     if (!apiResponse.ok) {
       const errorPayload = await apiResponse.json().catch(() => ({}))
-      throw new Error(errorPayload.error || 'Request failed')
+      const backendErrorMessage =
+        typeof errorPayload?.error === 'string' && errorPayload.error.trim().length > 0
+          ? errorPayload.error
+          : 'Request failed'
+      throw new Error(backendErrorMessage)
     }
 
-    status.type = 'success'
-    status.message = 'Message sent successfully! ✅'
+    openNotification('success', 'Message sent', 'Your message has been sent successfully', 3500)
     resetForm()
   } catch (error) {
-    status.type = 'error'
-    status.message = 'Failed to send message. Try again.'
+    const errorMessage =
+      error instanceof Error && error.message
+        ? error.message
+        : 'Something went wrong, please try again later'
+    openNotification('error', 'Failed to send', errorMessage, 5000)
     console.error(error)
   } finally {
     isSending.value = false
@@ -169,16 +204,8 @@ async function submit() {
   letter-spacing: -0.01em;
 }
 
-.contact-status {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.contact-status.is-success {
-  color: rgba(140, 255, 170, 0.95);
-}
-
-.contact-status.is-error {
-  color: rgba(255, 140, 140, 0.95);
+.sending-hint {
+  font-size: 13px;
+  opacity: 0.75;
 }
 </style>
