@@ -14,7 +14,7 @@
         :icon="notification.icon"
       />
 
-      <v-form :ref="contactFormRef" v-model="isValid" class="contact-form" @submit.prevent="submit">
+      <v-form ref="contactFormRef" v-model="isValid" class="contact-form" @submit.prevent="submit">
         <v-row dense>
           <v-col cols="12" sm="6">
             <v-text-field
@@ -141,7 +141,11 @@ function resetForm() {
   form.subject = ''
   form.message = ''
 
+  contactFormRef.value?.reset()
+
   contactFormRef.value?.resetValidation()
+
+  isValid.value = false
 }
 
 async function submit() {
