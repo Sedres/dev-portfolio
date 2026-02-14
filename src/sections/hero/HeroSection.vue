@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import HeroLeft from './HeroLeft.vue'
-import HeroRight from './HeroRight.vue'
+import HeroLeft from './components/HeroLeft.vue'
+import HeroRight from './components/HeroRight.vue'
 
 function scrollTo(id) {
   const element = document.getElementById(id)

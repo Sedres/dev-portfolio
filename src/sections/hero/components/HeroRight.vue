@@ -1,7 +1,7 @@
 <template>
   <div class="picture-container">
     <img
-      src="@/assets/images/me.webp"
+      src="@assets/images/me.webp"
       alt="Alin Calauz"
       class="hero-img"
       loading="lazy"
@@ -31,7 +31,7 @@
 
 .hero-img:hover {
   transform: scale(1.02);
-  filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 32px 48px rgba(255, 255, 255, 0.65));
 }
 
 /* RESPONSIVE (solo imagen) */

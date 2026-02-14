@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import ProfileCard from './ProfileCard.vue'
-import ItemMenu from './ItemMenu.vue'
+import ProfileCard from './components/ProfileCard.vue'
+import ItemMenu from './components/ItemMenu.vue'
 const activeNavId = ref('hero')
 const viewportWidth = ref(window.innerWidth)
 const isMobile = computed(() => viewportWidth.value <= 600)

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="project-card" variant="tonal" rounded="lg">
+  <v-card class="project-card" theme="dark" rounded="lg">
     <div class="carousel-wrap">
       <v-carousel
         ref="carousel"
@@ -138,8 +138,9 @@ const next = () => {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.479);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  background-color: rgba(25, 25, 25, 0.9);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -209,7 +210,7 @@ const next = () => {
 .glass-chip {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(20, 20, 24, 0.55);
-  backdrop-filter: blur(14px);
+
   color: rgba(255, 255, 255, 0.92);
 }
 

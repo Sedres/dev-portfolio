@@ -1,13 +1,13 @@
 <script setup>
-import Navbar from '@/components/navbar/NavBar.vue'
+import Navbar from '@sections/navbar/NavBar.vue'
 
-import HeroSection from '@/sections/hero/HeroSection.vue';
-import ProjectsSection from '@/sections/porjects/ProjectsSection.vue';
-import ContactSection from '@/sections/contact/ContactSection.vue';
+import HeroSection from '@sections/hero/HeroSection.vue';
+import ProjectsSection from '@sections/porjects/ProjectsSection.vue';
+import ContactSection from '@sections/contact/ContactSection.vue';
 </script>
 
 <template>
-  <img class="background" src="@/assets/images/background.webp"></img>
+  <img class="background" src="@assets/images/background.webp"></img>
     <div class="app-container">
     <Navbar />
     <HeroSection />
@@ -37,8 +37,7 @@ body {
 
   margin-bottom: 50px;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(20, 20, 24, 0.55);
-  backdrop-filter: blur(14px);
+  background: rgba(20, 20, 24, 0.904);
   color: rgba(255, 255, 255, 0.92);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 }

@@ -7,7 +7,7 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import '@mdi/font/css/materialdesignicons.css'
 
 // Components
-import App from './App.vue'
+import App from '@app/App.vue'
 
 const vuetify = createVuetify({
   components,

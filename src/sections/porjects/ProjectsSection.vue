@@ -1,7 +1,7 @@
 <template>
   <section id="projects" class="projects sectionsBackground">
     <!-- Header -->
-    <v-card variant="text" class="mb-6">
+    <v-card class="pl-2 pt-2 pb-1" variant="text">
       <v-card-title class="projects-title">{{ title }}</v-card-title>
       <v-card-subtitle class="projects-description"
         >a
@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import ProjectCard from './ProjectCard.vue'
+import ProjectCard from './components/ProjectCard.vue'
 import { title, description, projectsList } from '@/config/projects.json'
 </script>
 
@@ -54,7 +54,6 @@ import { title, description, projectsList } from '@/config/projects.json'
   letter-spacing: -0.035em;
   color: rgba(255, 255, 255, 0.97);
   line-height: 1.02;
-  padding-bottom: 12px;
 }
 
 .projects-description {

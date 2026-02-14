@@ -1,7 +1,7 @@
 <template>
   <section id="contact" class="contact sectionsBackground">
     <!-- Header -->
-    <v-card variant="text" class="mb-6">
+    <v-card variant="text" class="pl-2 pt-2 pb-1">
       <v-card-title class="contact-title">{{ title }}</v-card-title>
       <v-card-subtitle class="contact-description">
         {{ description }}
@@ -134,8 +134,7 @@
 import { reactive, ref } from 'vue'
 
 const title = 'Contacto'
-const description =
-  '¿Tienes una idea, una propuesta o simplemente quieres saludar? Escríbeme y lo vemos.'
+const description = '¿Tienes una idea, una propuesta? Escríbeme.'
 
 const direct = {
   email: 'tuemail@domain.com',
@@ -218,7 +217,6 @@ async function submit() {
   letter-spacing: -0.035em;
   color: rgba(255, 255, 255, 0.97);
   line-height: 1.02;
-  padding-bottom: 12px;
 }
 
 .contact-description {

@@ -85,18 +85,17 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 .zoom-overlay {
   display: grid;
   place-items: center;
-  padding: clamp(12px, 2vw, 24px);
 }
 
 .zoom-card {
-  width: min(1100px, 92vw);
-  height: min(820px, 92vh);
+  width: min(1100px, 100vw);
+  /* height: min(820px, 100vh); */
   display: flex;
   flex-direction: column;
 
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(20, 20, 24, 0.65);
-  backdrop-filter: blur(14px);
+  background: rgba(20, 20, 20, 0.9);
+
   color: rgba(255, 255, 255, 0.92);
 
   border-radius: 16px;
@@ -120,7 +119,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 .zoom-body {
   flex: 1;
   min-height: 0; /* clave para que el contenido flex no desborde */
-  padding: 12px;
+
   display: grid;
   place-items: center;
 }
