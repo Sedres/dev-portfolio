@@ -72,8 +72,6 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
-
 const form = reactive({
   name: '',
   email: '',

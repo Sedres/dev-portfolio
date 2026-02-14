@@ -1,43 +1,55 @@
 <template>
-  <v-card class="contact-card" variant="text">
-    <v-card-title class="contact-card-title"> Direct contact </v-card-title>
+  <v-card variant="text" rounded="xl" class="pa-2">
+    <v-card-title class="text-h6 font-weight-black"> Direct contact </v-card-title>
 
-    <v-card-text class="contact-info">
-      <div class="info-row">
-        <div class="info-label">Email</div>
-        <a class="info-value" :href="`mailto:${email}`">
-          {{ email }}
-        </a>
-      </div>
+    <v-card-text class="pt-2">
+      <v-list class="bg-transparent" density="compact" lines="two">
+        <v-list-item prepend-icon="mdi-email-outline">
+          <v-list-item-title class="text-overline opacity-70"> Email </v-list-item-title>
 
-      <div class="info-row">
-        <div class="info-label">Location</div>
-        <div class="info-value">{{ location }}</div>
-      </div>
+          <v-list-item-subtitle>
+            <a :href="`mailto:${email}`" class="mail-link">
+              {{ email }}
+            </a>
+          </v-list-item-subtitle>
+        </v-list-item>
 
-      <div class="info-row">
-        <div class="info-label">Links</div>
+        <v-list-item prepend-icon="mdi-map-marker-outline">
+          <v-list-item-title class="text-overline opacity-70"> Location </v-list-item-title>
 
-        <div class="info-links">
-          <v-chip
-            v-for="link in links"
-            :key="link.label"
-            class="info-chip"
-            :href="link.href"
-            target="_blank"
-            rel="noopener noreferrer"
-            :prepend-icon="link.icon"
-          >
-            {{ link.label }}
-          </v-chip>
-        </div>
-      </div>
+          <v-list-item-subtitle>
+            {{ location }}
+          </v-list-item-subtitle>
+        </v-list-item>
+
+        <v-list-item prepend-icon="mdi-link-variant">
+          <v-list-item-title class="text-overline opacity-70"> Links </v-list-item-title>
+
+          <v-list-item-subtitle class="pt-2">
+            <v-chip-group column class="ga-2">
+              <v-chip
+                v-for="link in links"
+                :key="link.label"
+                :href="link.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="tonal"
+                size="small"
+                :prepend-icon="link.icon"
+                class="text-decoration-none"
+              >
+                {{ link.label }}
+              </v-chip>
+            </v-chip-group>
+          </v-list-item-subtitle>
+        </v-list-item>
+      </v-list>
 
       <v-divider class="my-4" />
 
-      <p class="contact-note">
+      <v-alert variant="tonal" density="compact" type="info" class="rounded-lg">
         I usually reply within <strong>24–48h</strong>. If it’s urgent, mention it in the subject 🙌
-      </p>
+      </v-alert>
     </v-card-text>
   </v-card>
 </template>
@@ -47,59 +59,8 @@ import { email, location, links } from '@config/contact.json'
 </script>
 
 <style scoped>
-.contact-card {
-  border-radius: 16px;
-}
-
-.contact-card-title {
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.contact-info {
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.info-row {
-  margin-bottom: 14px;
-}
-
-.info-label {
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.7;
-  margin-bottom: 6px;
-}
-
-.info-value {
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+.mail-link {
   text-decoration: none;
-}
-
-.info-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.info-chip {
-  color: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.info-chip:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.09);
-}
-
-.contact-note {
-  margin: 0;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.78);
+  color: inherit;
 }
 </style>
