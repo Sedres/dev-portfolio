@@ -9,7 +9,7 @@
 import ProfileCard from './components/ProfileCard.vue'
 import ItemMenu from './components/ItemMenu.vue'
 import { navList } from '@/config/nav.json'
-import { useScrollSpy } from './composables/useScrollSpy'
+import { useScrollSpy } from '@composables/useScrollSpy'
 
 const viewportWidth = ref(window.innerWidth)
 const isMobile = computed(() => viewportWidth.value <= 600)

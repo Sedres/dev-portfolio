@@ -1,19 +1,19 @@
 <script setup>
 import Navbar from '@sections/navbar/NavBar.vue'
 
-import HeroSection from '@sections/hero/HeroSection.vue';
-import ProjectsSection from '@sections/porjects/ProjectsSection.vue';
-import ContactSection from '@sections/contact/ContactSection.vue';
+import HeroSection from '@sections/hero/HeroSection.vue'
+import ProjectsSection from '@sections/projects/ProjectsSection.vue'
+import ContactSection from '@sections/contact/ContactSection.vue'
 </script>
 
 <template>
-  <img class="background" src="@assets/images/background.webp"></img>
-    <div class="app-container">
+  <img class="background" src="@assets/images/background.webp" alt="" />
+
+  <div class="app-container">
     <Navbar />
     <HeroSection />
-  <ProjectsSection />
-  <ContactSection />
-  <section id="contact"></section>
+    <ProjectsSection />
+    <ContactSection />
   </div>
 </template>
 
@@ -22,16 +22,16 @@ import ContactSection from '@sections/contact/ContactSection.vue';
 body {
   font-family: 'Poppins', sans-serif;
 }
-  .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-  .sectionsBackground {
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.sectionsBackground {
   width: 95%;
   border-radius: 10px;
 

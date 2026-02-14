@@ -3,8 +3,7 @@
     <!-- Header -->
     <v-card class="pl-2 pt-2 pb-1" variant="text">
       <v-card-title class="projects-title">{{ title }}</v-card-title>
-      <v-card-subtitle class="projects-description"
-        >a
+      <v-card-subtitle class="projects-description">
         {{ description }}
       </v-card-subtitle>
     </v-card>
