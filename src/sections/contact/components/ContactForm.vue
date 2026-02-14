@@ -14,7 +14,7 @@
         :icon="notification.icon"
       />
 
-      <v-form v-model="isValid" class="contact-form" @submit.prevent="submit">
+      <v-form ref="contactFormRef" v-model="isValid" class="contact-form" @submit.prevent="submit">
         <v-row dense>
           <v-col cols="12" sm="6">
             <v-text-field
@@ -81,8 +81,8 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
 import AppNotification from '@/app/components/AppNotification.vue'
+const contactFormRef = ref(null)
 
 const form = reactive({
   name: '',
@@ -140,6 +140,8 @@ function resetForm() {
   form.email = ''
   form.subject = ''
   form.message = ''
+
+  contactFormRef.value?.resetValidation()
 }
 
 async function submit() {
