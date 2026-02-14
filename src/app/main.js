@@ -6,6 +6,10 @@ import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import '@mdi/font/css/materialdesignicons.css'
 
+// Styles
+
+import '@/styles/index.css'
+
 // Components
 import App from '@app/App.vue'
 

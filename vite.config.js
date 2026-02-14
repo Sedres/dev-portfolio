@@ -26,6 +26,8 @@ export default defineConfig({
       '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
       '@composables': fileURLToPath(new URL('./src/composables', import.meta.url)),
       '@sections': fileURLToPath(new URL('./src/sections', import.meta.url)),
+      '@config': fileURLToPath(new URL('./src/config', import.meta.url)),
+      '@styles': fileURLToPath(new URL('./src/styles', import.meta.url)),
     },
   },
 })

@@ -15,7 +15,6 @@ const viewportWidth = ref(window.innerWidth)
 const isMobile = computed(() => viewportWidth.value <= 600)
 
 const sectionIds = ['hero', ...navList.map((item) => item.section || item.id)]
-
 const { activeSection, scrollTo } = useScrollSpy(sectionIds)
 </script>
 
