@@ -1,9 +1,9 @@
 <template>
   <section id="contact" class="contact sectionsBackground">
     <v-card variant="text" class="pl-2 pt-2 pb-1">
-      <v-card-title class="contact-title">{{ title }}</v-card-title>
+      <v-card-title class="contact-title">Contact</v-card-title>
       <v-card-subtitle class="contact-description">
-        {{ description }}
+        Have an idea or a proposal? Send me a message.
       </v-card-subtitle>
     </v-card>
 
@@ -26,9 +26,6 @@
 <script setup>
 import ContactForm from './components/ContactForm.vue'
 import ContactInfo from './components/ContactInfo.vue'
-
-const title = 'Contact'
-const description = 'Have an idea or a proposal? Send me a message.'
 </script>
 
 <style scoped>
