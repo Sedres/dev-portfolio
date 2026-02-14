@@ -118,13 +118,31 @@ async function submit() {
 
   try {
     isSending.value = true
-    await new Promise((resolve) => setTimeout(resolve, 450))
+
+    const apiResponse = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
+        website: '', // honeypot
+      }),
+    })
+
+    if (!apiResponse.ok) {
+      const errorPayload = await apiResponse.json().catch(() => ({}))
+      throw new Error(errorPayload.error || 'Request failed')
+    }
+
     status.type = 'success'
     status.message = 'Message sent successfully! ✅'
     resetForm()
-  } catch {
+  } catch (error) {
     status.type = 'error'
     status.message = 'Failed to send message. Try again.'
+    console.error(error)
   } finally {
     isSending.value = false
   }
