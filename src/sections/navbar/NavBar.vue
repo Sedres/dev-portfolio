@@ -6,7 +6,6 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
 import ProfileCard from './components/ProfileCard.vue'
 import ItemMenu from './components/ItemMenu.vue'
 import { navList } from '@/config/nav.json'
