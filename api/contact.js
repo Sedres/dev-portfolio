@@ -160,8 +160,9 @@ export default async function handler(request, response) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: email, // 👈 email del usuario
+        from: contactFromEmail,
         to: [contactToEmail],
+        replyTo: email,
         subject: `📩 Portfolio · ${subject}`,
         html: emailHtml,
       }),
