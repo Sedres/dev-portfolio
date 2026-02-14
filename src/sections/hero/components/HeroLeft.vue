@@ -1,30 +1,50 @@
 <template>
-  <div class="hero-left">
-    <div class="hero-kicker">
-      <span class="kicker-dot" />
-      <span class="kicker-text">Available for projects</span>
-      <span class="kicker-sep" />
-      <span class="kicker-sub">Web · FiveM · UI</span>
+  <div class="d-flex flex-column ga-4 hero-left">
+    <div class="d-flex flex-wrap ga-2" :class="[smAndDown ? 'justify-center' : 'justify-start']">
+      <v-chip variant="tonal" size="small" class="px-3 py-2">
+        <template #prepend>
+          <v-avatar size="10" class="mr-3 kicker-dot" />
+        </template>
+
+        <span class="font-weight-black text-body-2">Available for projects</span>
+
+        <template v-if="!smAndDown">
+          <v-divider vertical class="mx-3" />
+          <span class="text-body-2 opacity-80">Web · FiveM · UI</span>
+        </template>
+      </v-chip>
+
+      <v-chip v-if="smAndDown" variant="tonal" size="small" class="px-3 py-2">
+        <span class="text-body-2 opacity-80">Web · FiveM · UI</span>
+      </v-chip>
     </div>
 
-    <h1 class="hero-title">Web & Script <span class="hero-accent">Developer</span></h1>
+    <div :class="[smAndDown ? 'text-center' : 'text-start']" class="hero-title-wrap">
+      <div class="hero-title text-h3 text-md-h2 font-weight-black">
+        Web & Script <span class="hero-accent">Developer</span>
+      </div>
+    </div>
 
-    <p class="hero-subtitle">
+    <div
+      class="text-body-1 opacity-85"
+      :class="[smAndDown ? 'text-center' : 'text-start']"
+      style="max-width: 62ch"
+    >
       I build modern web interfaces and practical solutions with a focus on clean structure,
       scalability, and polished UI.
-    </p>
+    </div>
 
-    <div class="hero-actions">
+    <div class="d-flex flex-wrap ga-3" :class="[smAndDown ? 'justify-center' : 'justify-start']">
       <v-btn
         v-for="button in buttonsList"
         :key="button.label"
         rounded="lg"
         size="large"
         variant="tonal"
-        class="btn btn-main"
         :prepend-icon="button.icon"
         :href="button.url"
         target="_blank"
+        class="hero-btn"
       >
         {{ button.label }}
       </v-btn>
@@ -33,7 +53,6 @@
         rounded="lg"
         size="large"
         variant="text"
-        class="btn btn-text"
         prepend-icon="mdi-arrow-right"
         @click="$emit('scroll-to', 'projects')"
       >
@@ -41,17 +60,21 @@
       </v-btn>
     </div>
 
-    <div class="hero-strip">
-      <div class="strip-label">
+    <v-sheet class="pt-4 d-flex flex-column ga-3 hero-strip" color="transparent">
+      <v-divider />
+
+      <div
+        class="d-inline-flex align-center ga-2 opacity-85 font-weight-bold"
+        :class="[smAndDown ? 'mx-auto' : '']"
+      >
         <v-icon size="16" icon="mdi-layers-outline" />
         <span>Toolbox</span>
       </div>
 
-      <div class="hero-chips">
+      <v-chip-group column class="ga-2" :class="[smAndDown ? 'justify-center' : 'justify-start']">
         <v-chip
           v-for="tech in toolboxList"
           :key="tech.name"
-          class="tech-chip"
           variant="tonal"
           rounded="lg"
           size="small"
@@ -59,74 +82,36 @@
         >
           {{ tech.name }}
         </v-chip>
-      </div>
-    </div>
+      </v-chip-group>
+    </v-sheet>
   </div>
 </template>
 
 <script setup>
 import { toolboxList, buttonsList } from '@/config/hero.json'
-
+import { useDisplay } from 'vuetify'
 defineEmits(['scroll-to'])
+
+const { smAndDown } = useDisplay()
 </script>
 
 <style scoped>
 .hero-left {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
   z-index: 2;
 }
 
-.hero-kicker {
-  width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
 .kicker-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
   background: rgba(120, 255, 190, 0.9);
   box-shadow: 0 0 0 6px rgba(120, 255, 190, 0.12);
+  animation: pulse 2.5s infinite;
 }
 
-.kicker-text {
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 750;
-  font-size: 13px;
-}
-
-.kicker-sep {
-  width: 1px;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.kicker-sub {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 12px;
-  font-weight: 650;
-}
-
-.hero-title {
-  margin: 0;
-  font-size: clamp(34px, 4vw, 56px);
-  font-weight: 950;
-  letter-spacing: -0.035em;
-  color: rgba(255, 255, 255, 0.97);
-  line-height: 1.02;
+.hero-title-wrap {
   padding-bottom: 12px;
   position: relative;
 }
 
-.hero-title::after {
+.hero-title-wrap::after {
   content: '';
   position: absolute;
   left: 0;
@@ -148,86 +133,26 @@ defineEmits(['scroll-to'])
   color: transparent;
 }
 
-.hero-subtitle {
-  font-size: 16px;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.82);
-  max-width: 62ch;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.btn {
-  height: 50px;
-  padding: 0 16px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+.hero-btn {
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-  cursor: pointer;
-  transition:
-    transform 140ms ease,
-    box-shadow 140ms ease;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.35);
-}
-
-.btn-text {
-  border: none !important;
-  background: transparent !important;
-  color: rgba(255, 255, 255, 0.88) !important;
-}
-
-.hero-strip {
-  margin-top: 10px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.strip-label {
-  display: inline-flex;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.78);
-  font-weight: 750;
-  font-size: 13px;
-}
-
-.hero-chips {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.tech-chip {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.86);
-}
-
-/* RESPONSIVE (lo que afectaba a left) */
 @media (max-width: 1024px) {
-  .hero-kicker {
-    margin: 0 auto;
-  }
-
-  .hero-title::after {
+  .hero-title-wrap::after {
     left: 50%;
     transform: translateX(-50%);
   }
+}
 
-  .hero-actions,
-  .hero-chips {
-    justify-content: center;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>

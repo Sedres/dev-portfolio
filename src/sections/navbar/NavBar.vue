@@ -10,9 +10,10 @@ import ProfileCard from './components/ProfileCard.vue'
 import ItemMenu from './components/ItemMenu.vue'
 import { navList } from '@/config/nav.json'
 import { useScrollSpy } from '@composables/useScrollSpy'
+import { useDisplay } from 'vuetify'
 
-const viewportWidth = ref(window.innerWidth)
-const isMobile = computed(() => viewportWidth.value <= 600)
+const { mobile } = useDisplay()
+const isMobile = mobile
 
 const sectionIds = ['hero', ...navList.map((item) => item.section || item.id)]
 const { activeSection, scrollTo } = useScrollSpy(sectionIds)
