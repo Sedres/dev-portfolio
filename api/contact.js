@@ -1,5 +1,3 @@
-// api/contact.js
-
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0
 }
@@ -40,7 +38,7 @@ export default async function handler(request, response) {
   try {
     const requestBody = await readJsonBody(request)
 
-    // Honeypot: bots suelen rellenarlo
+    // Honeypot (anti-bot)
     const honeypotValue = String(requestBody.website || '').trim()
     if (honeypotValue.length > 0) {
       return response.status(200).json({ ok: true })
@@ -54,12 +52,15 @@ export default async function handler(request, response) {
     if (!isNonEmptyString(name) || name.length < 2) {
       return response.status(400).json({ ok: false, error: 'Invalid name' })
     }
+
     if (!isValidEmailAddress(email)) {
       return response.status(400).json({ ok: false, error: 'Invalid email' })
     }
+
     if (!isNonEmptyString(subject) || subject.length < 3) {
       return response.status(400).json({ ok: false, error: 'Invalid subject' })
     }
+
     if (!isNonEmptyString(message) || message.length < 10) {
       return response.status(400).json({ ok: false, error: 'Invalid message' })
     }
@@ -74,72 +75,83 @@ export default async function handler(request, response) {
 
     const sentAtIsoString = new Date().toISOString()
 
+    // =========================
+    // EMAIL TEMPLATE (MINIMAL)
+    // =========================
+
     const emailHtml = `
-  <div style="background:#0b0b0f;padding:32px 12px;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;">
-    <div style="max-width:680px;margin:0 auto;">
+      <div style="background:#0b0d10;padding:28px 12px;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45;">
+        <div style="max-width:680px;margin:0 auto;">
 
-      <!-- Header -->
-      <div style="padding:18px 20px;border-radius:16px;background:linear-gradient(135deg,#7c3aed 0%,#ec4899 50%,#22c55e 100%);">
-        <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.92);font-weight:800;">
-          Portfolio Contact
-        </div>
-        <div style="margin-top:6px;font-size:22px;color:#fff;font-weight:900;letter-spacing:-.02em;">
-          New message received ✨
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:700;">
+              Portfolio Contact
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,.45);">
+              ${escapeHtml(sentAtIsoString)}
+            </div>
+          </div>
+
+          <div style="background:#0f1216;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;">
+
+            <div style="padding:18px 18px 14px 18px;border-bottom:1px solid rgba(255,255,255,.08);">
+              <div style="font-size:18px;color:#fff;font-weight:800;letter-spacing:-.01em;">
+                New message
+              </div>
+              <div style="margin-top:4px;font-size:13px;color:rgba(255,255,255,.6);">
+                Someone contacted you via your portfolio form.
+              </div>
+            </div>
+
+            <div style="padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08);">
+              <table style="width:100%;border-collapse:collapse;">
+                <tr>
+                  <td style="width:110px;padding:6px 0;font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;font-weight:700;">From</td>
+                  <td style="padding:6px 0;font-size:14px;color:rgba(255,255,255,.92);font-weight:700;">
+                    ${escapeHtml(name)}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width:110px;padding:6px 0;font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;font-weight:700;">Email</td>
+                  <td style="padding:6px 0;font-size:14px;color:rgba(255,255,255,.92);font-weight:700;">
+                    <a href="mailto:${escapeHtml(email)}" style="color:#c7d2fe;text-decoration:none;">
+                      ${escapeHtml(email)}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width:110px;padding:6px 0;font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;font-weight:700;">Subject</td>
+                  <td style="padding:6px 0;font-size:14px;color:rgba(255,255,255,.92);font-weight:700;">
+                    ${escapeHtml(subject)}
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div style="padding:16px 18px 18px 18px;">
+              <div style="font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.12em;text-transform:uppercase;font-weight:800;">
+                Message
+              </div>
+
+              <div style="margin-top:10px;background:#0b0d10;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;color:rgba(255,255,255,.92);white-space:pre-wrap;line-height:1.7;font-size:14px;">
+                ${escapeHtml(message)}
+              </div>
+
+              <div style="margin-top:12px;font-size:12px;color:rgba(255,255,255,.5);">
+                Reply directly to this email to answer the sender.
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;font-size:12px;color:rgba(255,255,255,.4);text-align:center;">
+            Sent from your contact endpoint · Resend
+          </div>
+
         </div>
       </div>
+    `
 
-      <!-- Card -->
-      <div style="margin-top:14px;background:#12121a;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;">
-
-        <!-- Meta -->
-        <div style="padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08);">
-          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
-            ${pill('From', escapeHtml(name))}
-            ${pill('Email', escapeHtml(email))}
-            ${pill('Subject', escapeHtml(subject))}
-          </div>
-
-          <div style="font-size:12px;color:rgba(255,255,255,.55);">
-            Received: <span style="color:rgba(255,255,255,.8);font-weight:700">${escapeHtml(sentAtIsoString)}</span>
-          </div>
-        </div>
-
-        <!-- Message -->
-        <div style="padding:18px 20px;">
-          <div style="font-size:13px;color:rgba(255,255,255,.55);font-weight:800;letter-spacing:.12em;text-transform:uppercase;">
-            Message
-          </div>
-
-          <div style="margin-top:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 14px;color:rgba(255,255,255,.92);white-space:pre-wrap;line-height:1.6;">
-            ${escapeHtml(message)}
-          </div>
-
-          <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,.6);">
-            Tip: hit <strong>Reply</strong> to respond directly to the sender (Reply-To is set).
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <div style="margin-top:12px;font-size:12px;color:rgba(255,255,255,.5);text-align:center;">
-        Sent via your Vercel contact endpoint · Resend
-      </div>
-    </div>
-  </div>
-`
-
-    function pill(label, value) {
-      return `
-    <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);">
-      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:900;">
-        ${escapeHtml(label)}
-      </span>
-      <span style="font-size:13px;color:rgba(255,255,255,.92);font-weight:800;">
-        ${value}
-      </span>
-    </div>
-  `
-    }
+    // =========================
 
     const providerResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
