@@ -31,6 +31,31 @@
         "https://i.postimg.cc/8PZCQzYZ/405595850-5b22747d-7d92-43ee-a79c-14d2b65c9453.png",
         "https://i.postimg.cc/7YHLW2KK/405595938-9e7fd3a0-76f3-437d-8351-826a78d20998.png"
       ]
+    },
+    {
+      "name": "FiveM Rockstar Editor UI",
+      "description": "This script allows FiveM players to access the Rockstar Editor directly in-game using the /editor command. It includes functionalities for recording, saving, and deleting clips, as well as taking high-quality photos.",
+      "tech": [
+        {
+          "name": "Vue",
+          "icon": "mdi-vuejs"
+        },
+        {
+          "name": "Vuetify",
+          "icon": "mdi-vuetify"
+        },
+        {
+          "name": "Lua",
+          "icon": "mdi-language-lua"
+        }
+      ],
+      "url": "https://github.com/Sedres/Wolf-Rockstar-Editor",
+
+      "images": [
+        "https://i.postimg.cc/J4bwPqgC/wre1.png",
+        "https://i.postimg.cc/VLjyDRTc/wre2.png",
+        "https://i.postimg.cc/L6zdNT7S/wre3.png"
+      ]
     }
   ]
 }
