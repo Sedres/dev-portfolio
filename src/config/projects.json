@@ -56,6 +56,30 @@
         "https://i.postimg.cc/VLjyDRTc/wre2.png",
         "https://i.postimg.cc/L6zdNT7S/wre3.png"
       ]
+    },
+    {
+      "name": "Fivem Smoking Script",
+      "description": "An interactive and immersive FiveM script that allows players to smoke cigarettes, cigars, or vapes with realistic animations and smooth transitions. Designed to enhance roleplay experiences by adding believable smoking mechanics, including lighting, holding, inhaling, and exhaling sequences. Built for easy integration into existing servers and compatible with popular inventory and UI systems.",
+      "tech": [
+        {
+          "name": "Vue",
+          "icon": "mdi-vuejs"
+        },
+        {
+          "name": "Vuetify",
+          "icon": "mdi-vuetify"
+        },
+        {
+          "name": "Lua",
+          "icon": "mdi-language-lua"
+        }
+      ],
+      "url": "https://dualcore.tebex.io/package/6677685",
+
+      "images": [
+        "https://dunb17ur4ymx4.cloudfront.net/packages/images/641d5de59d763992edd81f46719dff64fe95aa8f.png",
+        "https://dunb17ur4ymx4.cloudfront.net/packages/images/81f3fede4fdae3ecdb6b0a55a8ca4af53a69536e.png"
+      ]
     }
   ]
 }
