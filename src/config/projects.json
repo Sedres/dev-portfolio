@@ -3,6 +3,46 @@
   "description": "List of projects I've worked on.",
   "projectsList": [
     {
+      "name": "FiveM Collectibles Pickup Script",
+      "description": "This feature-packed script introduces collectible items scattered throughout the game world, encouraging players to explore, collect, and earn exciting rewards. Perfect for roleplay servers, it adds a unique layer of engagement and challenge for your players.",
+      "tech": [
+        {
+          "name": "Vue",
+          "icon": "mdi-vuejs"
+        },
+        {
+          "name": "Vuetify",
+          "icon": "mdi-vuetify"
+        },
+        {
+          "name": "Lua",
+          "icon": "mdi-language-lua"
+        },
+        {
+          "name": "MySQL",
+          "icon": "mdi-database"
+        },
+        {
+          "name": "Node.js",
+          "icon": "mdi-nodejs"
+        },
+        {
+          "name": "Axios",
+          "icon": "mdi-nodejs"
+        }
+      ],
+      "url": "https://forum.cfx.re/t/qbcore-esx-custom-pickups-system-v2-0/5299199",
+
+      "images": [
+        "https://forum-cfx-re.akamaized.net/original/5X/6/0/1/9/6019558722c83d7a9aac7117606923e63a3c50fd.jpeg",
+        "https://forum-cfx-re.akamaized.net/original/5X/a/6/b/2/a6b2fba0fedc035b2707f3a69969a9d00edefd93.jpeg",
+        "https://forum-cfx-re.akamaized.net/original/5X/7/7/7/f/777f838c3978e17f1ee9542337e50dde05fa2fee.jpeg",
+        "https://forum-cfx-re.akamaized.net/original/5X/4/3/8/7/4387f2a35df951134ee6e7ffea2fbff148a7af1b.jpeg",
+        "https://forum-cfx-re.akamaized.net/original/5X/e/4/c/3/e4c341edfc748d58d3f0fa4c3b8006fa6ca68684.jpeg",
+        "https://forum-cfx-re.akamaized.net/original/5X/e/9/b/4/e9b4208bc34bd6b03798fbeafd7ab60dd272eee4.jpeg"
+      ]
+    },
+    {
       "name": "FiveM Modern Loading Screen",
       "description": "A sleek and fully customizable loading screen for your FiveM server! Designed with aesthetics and functionality in mind, this loading screen will enhance your players' experience while they wait to load into your server.",
       "tech": [
