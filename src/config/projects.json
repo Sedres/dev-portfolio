@@ -120,6 +120,35 @@
         "https://dunb17ur4ymx4.cloudfront.net/packages/images/641d5de59d763992edd81f46719dff64fe95aa8f.png",
         "https://dunb17ur4ymx4.cloudfront.net/packages/images/81f3fede4fdae3ecdb6b0a55a8ca4af53a69536e.png"
       ]
+    },
+    {
+      "name": "Dimo Shop Web",
+      "description": "A fully redesigned website for the Dimo Shop, offering a sleek and modern design, user-friendly navigation, and easy-to-use features for a smooth shopping experience.",
+      "tech": [
+        {
+          "name": "Twig",
+          "icon": "mdi-language-php"
+        },
+        {
+          "name": "HTML",
+          "icon": "mdi-language-html5"
+        },
+        {
+          "name": "CSS",
+          "icon": "mdi-language-css3"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "mdi-language-javascript"
+        }
+      ],
+      "url": "https://dimo-shop.tebex.io/",
+
+      "images": [
+        "https://i.postimg.cc/BZddQZ57/42D69221-D769-44A7-88EA-E4A135E6A56F.png",
+        "https://i.postimg.cc/9FZs43JP/062C4FE6-4FFE-4371-B385-98E0ECE2D7ED.png",
+        "https://i.postimg.cc/6phS0rs7/6D522498-FE45-4E6E-8BA0-3C3759F2CB45.png"
+      ]
     }
   ]
 }
