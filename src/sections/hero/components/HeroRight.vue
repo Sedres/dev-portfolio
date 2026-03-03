@@ -1,7 +1,7 @@
 <template>
   <div class="picture-container">
     <img
-      src="@assets/images/me.webp"
+      src="https://res.cloudinary.com/dzfe3wq2x/image/upload/q_auto:eco/v1772554176/me_rh77gv.avif"
       alt="Alin Calauz"
       class="hero-img"
       loading="lazy"
@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 400px;
 }
 
 .hero-img {
@@ -38,13 +39,16 @@
 @media (max-width: 1024px) {
   .hero-img {
     margin-bottom: -16px;
-    height: 360px;
+    height: 560px;
+  }
+  .picture-container {
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .hero-img {
-    height: 300px;
+    height: 460px;
   }
 }
 </style>

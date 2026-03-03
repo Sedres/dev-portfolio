@@ -5,7 +5,7 @@
         ref="carousel"
         v-model="currentIndex"
         class="project-carousel"
-        height="fit-content"
+        height="250px"
         hide-delimiters
         :show-arrows="false"
         crossfade
@@ -159,6 +159,7 @@ const next = () => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .project-img {
+  height: 100%;
   cursor: zoom-in;
 }
 
