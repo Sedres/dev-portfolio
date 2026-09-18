@@ -3,6 +3,38 @@
   "description": "List of projects I've worked on.",
   "projectsList": [
     {
+      "name": "Nur Clinic",
+      "description": "A modern and professional website for an aesthetic medical center, featuring clean UI, responsive design, and structured service showcases for patients.",
+      "tech": [
+        {
+          "name": "HTML",
+          "icon": "mdi-language-html5"
+        },
+        {
+          "name": "CSS",
+          "icon": "mdi-language-css3"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "mdi-language-javascript"
+        },
+        {
+          "name": "Node.js",
+          "icon": "mdi-nodejs"
+        }
+      ],
+      "url": "https://nurclinic.es/",
+      "images": [
+        "https://i.postimg.cc/kRRg1xRB/Captura-de-pantalla-2026-09-18-134200.png",
+        "https://i.postimg.cc/8ffzKhf6/Captura-de-pantalla-2026-09-18-134334.png",
+        "https://i.postimg.cc/vxxZqWxx/Captura-de-pantalla-2026-09-18-134351.png",
+        "https://i.postimg.cc/GTTm7kTs/Captura-de-pantalla-2026-09-18-134428.png",
+        "https://i.postimg.cc/rRRwnSR0/Captura-de-pantalla-2026-09-18-134445.png",
+        "https://i.postimg.cc/9wwQ8GwG/Captura-de-pantalla-2026-09-18-134555.png",
+        "https://i.postimg.cc/4HHxLzH6/Captura-de-pantalla-2026-09-18-134641.png"
+      ]
+    },
+    {
       "name": "FiveM Collectibles Pickup Script",
       "description": "This feature-packed script introduces collectible items scattered throughout the game world, encouraging players to explore, collect, and earn exciting rewards. Perfect for roleplay servers, it adds a unique layer of engagement and challenge for your players.",
       "tech": [
