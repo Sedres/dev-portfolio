@@ -4,7 +4,7 @@
   "projectsList": [
     {
       "name": "Nur Clinic",
-      "description": "A modern and professional website for an aesthetic medical center, featuring clean UI, responsive design, and structured service showcases for patients.",
+      "description": "A modern and professional website designed and developed for an aesthetic medical center. It features a clean UI, a fully responsive layout, and structured service showcases that allow patients to easily explore treatments, medical information, and center details for a seamless user experience.",
       "tech": [
         {
           "name": "HTML",
@@ -25,13 +25,13 @@
       ],
       "url": "https://nurclinic.es/",
       "images": [
-        "https://i.postimg.cc/kRRg1xRB/Captura-de-pantalla-2026-09-18-134200.png",
-        "https://i.postimg.cc/8ffzKhf6/Captura-de-pantalla-2026-09-18-134334.png",
-        "https://i.postimg.cc/vxxZqWxx/Captura-de-pantalla-2026-09-18-134351.png",
-        "https://i.postimg.cc/GTTm7kTs/Captura-de-pantalla-2026-09-18-134428.png",
-        "https://i.postimg.cc/rRRwnSR0/Captura-de-pantalla-2026-09-18-134445.png",
-        "https://i.postimg.cc/9wwQ8GwG/Captura-de-pantalla-2026-09-18-134555.png",
-        "https://i.postimg.cc/4HHxLzH6/Captura-de-pantalla-2026-09-18-134641.png"
+        "https://i.postimg.cc/L69008ww/Captura-de-pantalla-2026-09-18-134200.png",
+        "https://i.postimg.cc/HsYPPkRF/Captura-de-pantalla-2026-09-18-134334.png",
+        "https://i.postimg.cc/HsYPPkRh/Captura-de-pantalla-2026-09-18-134351.png",
+        "https://i.postimg.cc/wTqbbjZr/Captura-de-pantalla-2026-09-18-134428.png",
+        "https://i.postimg.cc/WbNff1x2/Captura-de-pantalla-2026-09-18-134445.png",
+        "https://i.postimg.cc/TYdHH3BG/Captura-de-pantalla-2026-09-18-134555.png",
+        "https://i.postimg.cc/MK6rrpg6/Captura-de-pantalla-2026-09-18-134641.png"
       ]
     },
     {
