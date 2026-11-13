@@ -10,7 +10,7 @@
   >
     <v-card class="zoom-card" role="dialog" aria-modal="true" :aria-label="title" elevation="12">
       <header class="zoom-topbar">
-        <div class="d-flex align-center ga-2">
+        <div v-if="hasMultiple" class="d-flex align-center ga-2">
           <v-btn
             rounded="lg"
             class="prev-button"
@@ -27,6 +27,7 @@
             @click="$emit('nextImage')"
           ></v-btn>
         </div>
+        <div v-else />
 
         <v-btn
           class="close-button"
@@ -40,21 +41,23 @@
 
       <v-divider />
 
-      <div class="zoom-body" transition="fade-transition">
-        <v-img :src="image" :alt="alt" class="zoom-image">
-          <template #placeholder>
-            <div class="placeholder">
-              <v-progress-circular indeterminate />
-            </div>
-          </template>
+      <div class="zoom-body">
+        <v-fade-transition mode="out-in">
+          <v-img :key="image" :src="image" :alt="alt" class="zoom-image">
+            <template #placeholder>
+              <div class="placeholder">
+                <v-progress-circular indeterminate />
+              </div>
+            </template>
 
-          <template #error>
-            <div class="error">
-              <v-icon icon="mdi-image-off-outline" />
-              <span>Couldn’t load the image.</span>
-            </div>
-          </template>
-        </v-img>
+            <template #error>
+              <div class="error">
+                <v-icon icon="mdi-image-off-outline" />
+                <span>Couldn’t load the image.</span>
+              </div>
+            </template>
+          </v-img>
+        </v-fade-transition>
       </div>
     </v-card>
   </v-overlay>
@@ -66,6 +69,7 @@ const props = defineProps({
   image: { type: String, required: true },
   title: { type: String, default: 'Image Zoom' },
   alt: { type: String, default: 'Zoomed image' },
+  hasMultiple: { type: Boolean, default: false },
 })
 
 const emit = defineEmits(['closeZoom', 'prevImage', 'nextImage'])
@@ -93,12 +97,12 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
   display: flex;
   flex-direction: column;
 
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--glass-border);
   background: rgba(20, 20, 20, 0.9);
 
   color: rgba(255, 255, 255, 0.92);
 
-  border-radius: 16px;
+  border-radius: var(--surface-radius);
   overflow: hidden;
 }
 
@@ -107,13 +111,6 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
   align-items: center;
   justify-content: space-between;
   padding: 12px 14px;
-}
-
-.zoom-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
 }
 
 .zoom-body {

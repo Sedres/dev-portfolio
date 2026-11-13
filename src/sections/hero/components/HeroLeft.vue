@@ -71,7 +71,7 @@
         <span>Toolbox</span>
       </div>
 
-      <v-chip-group column class="ga-2" :class="[smAndDown ? 'justify-center' : 'justify-start']">
+      <v-chip-group column class="toolbox-chips" :class="[smAndDown ? 'justify-center' : 'justify-start']">
         <v-chip
           v-for="tech in toolboxList"
           :key="tech.name"
@@ -135,6 +135,12 @@ const { smAndDown } = useDisplay()
 
 .hero-btn {
   border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 959.98px) {
+  .toolbox-chips :deep(.v-slide-group__content) {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 1024px) {

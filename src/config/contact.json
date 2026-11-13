@@ -2,7 +2,11 @@
   "email": "alincalauz19@gmail.com",
   "location": "Spain",
   "links": [
-    { "icon": "mdi-linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/" },
+    {
+      "icon": "mdi-linkedin",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/alincalauz"
+    },
     { "icon": "mdi-twitter", "label": "Twitter", "href": "https://x.com/sedres13" }
   ]
 }

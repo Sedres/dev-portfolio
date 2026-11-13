@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vuetify from 'vite-plugin-vuetify'
 
 import vueDevTools from 'vite-plugin-vue-devtools'
 // Auto import plugin
@@ -11,6 +12,12 @@ import AutoImport from 'unplugin-auto-import/vite'
 export default defineConfig({
   plugins: [
     vue(),
+    // Only bundle the Vuetify components/directives actually used + their CSS,
+    // and trim the utility stylesheet via the SASS settings override.
+    vuetify({
+      autoImport: true,
+      styles: { configFile: 'src/styles/settings.scss' },
+    }),
     vueDevTools(),
     AutoImport({
       /* options */

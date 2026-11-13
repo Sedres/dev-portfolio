@@ -1,5 +1,5 @@
 <template>
-  <v-card variant="text" rounded="xl" class="pa-2">
+  <v-card variant="text" class="contact-info surface-card">
     <v-card-title class="text-h6 font-weight-black"> Direct contact </v-card-title>
 
     <v-card-text class="pt-2">
@@ -47,9 +47,13 @@
 
       <v-divider class="my-4" />
 
-      <v-alert variant="tonal" density="compact" type="info" class="rounded-lg">
-        I usually reply within <strong>24–48h</strong>. If it’s urgent, mention it in the subject 🙌
-      </v-alert>
+      <div class="contact-note">
+        <v-icon icon="mdi-clock-outline" size="18" />
+        <span>
+          I usually reply within <strong>24–48h</strong>. If it’s urgent, mention it in the
+          subject.
+        </span>
+      </div>
     </v-card-text>
   </v-card>
 </template>
@@ -59,8 +63,35 @@ import { email, location, links } from '@config/contact.json'
 </script>
 
 <style scoped>
+.contact-info {
+  height: 100%;
+}
+
 .mail-link {
   text-decoration: none;
   color: inherit;
+}
+
+.contact-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+.contact-note strong {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.contact-note .v-icon {
+  opacity: 0.7;
+  margin-top: 1px;
 }
 </style>

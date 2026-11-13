@@ -1,26 +1,39 @@
 // Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-import { aliases, mdi } from 'vuetify/iconsets/mdi'
-import '@mdi/font/css/materialdesignicons.css'
 
 // Styles
 
 import '@/styles/index.css'
 
+// Icons
+
+import { mdiAliases, NamedSvgIcon } from '@app/icons'
+
 // Components
 import App from '@app/App.vue'
 
 const vuetify = createVuetify({
-  components,
-  directives,
+  theme: {
+    defaultTheme: 'dark',
+    themes: {
+      dark: {
+        colors: {
+          background: '#0e0e11',
+          surface: '#16161b',
+          'surface-variant': '#202028',
+          primary: '#ffffff',
+          secondary: '#b9b9c2',
+          info: '#b9b9c2',
+        },
+      },
+    },
+  },
   icons: {
-    defaultSet: 'mdi',
-    aliases,
+    defaultSet: 'mdi-svg',
+    aliases: mdiAliases,
     sets: {
-      mdi,
+      'mdi-svg': { component: NamedSvgIcon },
     },
   },
 })

@@ -5,13 +5,17 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .app-container {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: var(--section-gap);
   min-height: 100vh;
+  padding-bottom: var(--section-gap);
 }

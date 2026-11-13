@@ -1,15 +1,9 @@
 <template>
   <!-- Profile -->
   <v-card
-    :class="[
-      'profile-card d-flex align-center justify-center gap-3',
-      'glass',
-      { 'is-active': activeNavId === 'hero' },
-    ]"
+    class="profile-card d-flex align-center justify-center gap-3 glass"
     type="button"
-    rounded="lg"
-    variant="outlined"
-    elevation="10"
+    variant="text"
     density="compact"
     aria-label="Go to top"
     @click="emit('scroll-to', 'hero')"
@@ -26,11 +20,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  activeNavId: {
-    type: String,
-    required: true,
-  },
+defineProps({
   isMobile: {
     type: Boolean,
     required: true,
@@ -49,6 +39,7 @@ const emit = defineEmits(['scroll-to'])
   padding: 10px;
   width: fit-content;
   height: 64px;
+  border-radius: var(--surface-radius);
 
   cursor: pointer;
   user-select: none;
@@ -60,15 +51,17 @@ const emit = defineEmits(['scroll-to'])
 }
 
 .profile-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05) 50%),
+    rgba(38, 38, 48, 0.44);
   transform: translateY(-1px);
-  color: rgba(255, 255, 255, 0.96);
+  color: rgba(255, 255, 255, 0.98);
 }
 
 /* Profile text card */
 
 .profile-name {
-  font-weight: 850;
+  font-weight: 800;
   font-size: 14px;
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.96);
@@ -76,13 +69,14 @@ const emit = defineEmits(['scroll-to'])
 
 .profile-role {
   margin-top: 4px;
-  font-weight: 650;
+  font-weight: 600;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.72);
 }
 
 .profile-hint {
-  padding: 15px;
+  box-sizing: content-box;
+  padding: 5px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);

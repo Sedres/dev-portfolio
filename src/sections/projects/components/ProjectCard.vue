@@ -1,11 +1,11 @@
 <template>
-  <v-card class="project-card" theme="dark" rounded="lg">
+  <v-card class="project-card" theme="dark">
     <div class="carousel-wrap">
       <v-carousel
         ref="carousel"
         v-model="currentIndex"
         class="project-carousel"
-        height="250px"
+        height="320px"
         hide-delimiters
         :show-arrows="false"
         crossfade
@@ -107,6 +107,7 @@
   <ProjectImageZoom
     :open="imageZoomActive"
     :image="project.images[currentIndex]"
+    :has-multiple="project.images.length > 1"
     @closeZoom="imageZoomActive = false"
     @prevImage="prev"
     @nextImage="next"
@@ -121,7 +122,7 @@ const props = defineProps({
 })
 
 const imageZoomActive = ref(false)
-const currentIndex = shallowRef(1)
+const currentIndex = shallowRef(0)
 
 const prev = () => {
   currentIndex.value =
@@ -137,10 +138,13 @@ const next = () => {
 .project-card {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.479);
+  border-radius: var(--surface-radius);
+  border: 1px solid var(--glass-border);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
-  background-color: rgba(25, 25, 25, 0.9);
+  background-color: rgba(25, 25, 25, 0.72);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -149,7 +153,7 @@ const next = () => {
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.24);
 }
 
 .carousel-wrap {
@@ -217,6 +221,7 @@ const next = () => {
 
 /* Content area */
 .content {
+  flex: 1;
   padding: 16px 16px 10px;
   display: flex;
   flex-direction: column;
@@ -247,14 +252,16 @@ const next = () => {
 .project-chips {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 8px;
+  min-height: 60px;
 }
 .tech-chip {
   border: 1px solid rgba(255, 255, 255, 0.1);
   opacity: 0.92;
 }
 
-/* Description: nicer reading */
+/* Description: same fixed size in every card; long text scrolls inside */
 .project-description {
   margin: 0;
   padding: 10px;
@@ -263,17 +270,11 @@ const next = () => {
   background: rgba(255, 255, 255, 0.03);
   line-height: 1.45;
 
-  /* clamp for nicer cards */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
-  overflow: auto;
-}
-
-/* Scrollbar styling for description */
-.project-description::-webkit-scrollbar {
-  display: none;
+  /* Fixed size so every card looks identical */
+  height: 180px;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 /* Divider spacing */
@@ -283,6 +284,7 @@ const next = () => {
 
 /* Actions */
 .project-actions {
+  margin-top: auto;
   padding: 0;
 }
 .cta {

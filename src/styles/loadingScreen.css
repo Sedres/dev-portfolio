@@ -1,5 +1,5 @@
 .loading {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -7,7 +7,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background: black;
+  background: #0e0e11;
   z-index: 9999;
 }
 .loading svg polyline {
@@ -19,12 +19,12 @@
 
 .loading svg polyline#back {
   fill: none;
-  stroke: #ff4d5033;
+  stroke: rgba(255, 255, 255, 0.16);
 }
 
 .loading svg polyline#front {
   fill: none;
-  stroke: #ff4d4f;
+  stroke: rgba(255, 255, 255, 0.92);
   stroke-dasharray: 48, 144;
   stroke-dashoffset: 192;
   animation: dash_682 1.4s linear infinite;

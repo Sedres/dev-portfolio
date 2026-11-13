@@ -4,7 +4,6 @@
     :model-value="activeNavId"
     selected-class="is-active"
     class="menu glass"
-    elevation="10"
     aria-label="Navigation menu"
     @update:modelValue="emit('scroll-to', $event)"
   >
@@ -12,7 +11,7 @@
       v-for="item in navList"
       :key="item.id"
       :value="item.id"
-      v-slot="{ isSelected, selectedClass, toggle }"
+      v-slot="{ selectedClass, toggle }"
     >
       <v-btn
         type="button"
@@ -32,7 +31,7 @@
 
 <script setup>
 import { navList } from '@/config/nav.json'
-const props = defineProps({
+defineProps({
   activeNavId: {
     type: String,
     required: true,
@@ -53,16 +52,16 @@ const emit = defineEmits(['scroll-to'])
   justify-content: center;
   gap: 6px;
   padding: 6px;
-  border-radius: 8px;
+  border-radius: var(--surface-radius);
   height: 64px;
 }
 
-.menu-btn {
+.menu-btn.menu-btn {
   padding: 10px 12px;
   min-width: 48px;
   height: 52px;
 
-  color: rgba(255, 255, 255, 0.46);
+  color: rgba(255, 255, 255, 0.62);
   cursor: pointer;
 
   border: 1px solid transparent;
@@ -75,28 +74,30 @@ const emit = defineEmits(['scroll-to'])
 }
 
 .menu-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-1px);
   color: rgba(255, 255, 255, 0.96);
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 .is-active {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 .menu-text {
-  font-weight: 750;
+  font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.01em;
   margin-left: 8px;
 }
 
 @media (max-width: 600px) {
-  .menu-btn {
+  .menu-btn.menu-btn {
     height: 46px;
     padding: 10px 8px;
   }

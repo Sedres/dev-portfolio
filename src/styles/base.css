@@ -1,4 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root {
+  /* Surfaces */
+  --surface-radius: 16px;
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-bg: rgba(24, 24, 30, 0.5);
+  --glass-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.02) 48%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --surface-bg: rgba(18, 18, 22, 0.78);
+  --glass-shadow: 0 16px 44px rgba(0, 0, 0, 0.38);
+  --glass-blur: 20px;
+  --surface-blur: 16px;
+
+  /* Layout */
+  --section-padding: 32px;
+  --section-gap: 50px;
+  --section-max-width: 1800px;
+  --scroll-offset: 110px;
+}
 
 *,
 *::before,
@@ -12,8 +33,74 @@ body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #0e0e11;
   color: rgba(255, 255, 255, 0.92);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a:focus-visible,
+.v-btn:focus-visible,
+[role='button']:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+/* Slim, theme-aware scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+  background-clip: padding-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --section-padding: 20px;
+  }
 }

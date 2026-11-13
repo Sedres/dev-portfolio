@@ -4,6 +4,7 @@ import Navbar from '@sections/navbar/NavBar.vue'
 import HeroSection from '@sections/hero/HeroSection.vue'
 
 import ContactSection from '@sections/contact/ContactSection.vue'
+import FooterSection from '@sections/footer/FooterSection.vue'
 
 const ProjectsSection = defineAsyncComponent(() => import('@sections/projects/ProjectsSection.vue'))
 </script>
@@ -22,6 +23,7 @@ const ProjectsSection = defineAsyncComponent(() => import('@sections/projects/Pr
     <HeroSection />
     <ProjectsSection />
     <ContactSection />
+    <FooterSection />
   </div>
 </template>
 

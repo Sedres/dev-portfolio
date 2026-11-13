@@ -1,5 +1,5 @@
 <template>
-  <v-card class="contact-card" theme="dark" variant="text">
+  <v-card class="contact-card surface-card" theme="dark" variant="text">
     <v-card-title class="contact-card-title">Send me a message</v-card-title>
 
     <v-card-text>
@@ -192,22 +192,44 @@ async function submit() {
 
 <style scoped>
 .contact-card {
-  border-radius: 16px;
+  height: 100%;
 }
 
 .contact-card-title {
   font-weight: 800;
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.92);
+  padding-bottom: 4px;
 }
 
 .contact-form :deep(.v-field__outline) {
-  opacity: 0.65;
+  opacity: 0.55;
+}
+
+.contact-form :deep(.v-field--focused .v-field__outline) {
+  opacity: 1;
 }
 
 .contact-btn {
   font-weight: 800;
   letter-spacing: -0.01em;
+  min-width: 132px;
+}
+
+.contact-btn.v-btn {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #101014 !important;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+.contact-btn.v-btn:hover {
+  background: #ffffff !important;
+}
+
+.contact-btn.v-btn--disabled {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .sending-hint {
