@@ -22,6 +22,19 @@
   align-items: flex-end;
   justify-content: center;
   width: 500px;
+  /* The shadow lives on the wrapper, not on the masked <img>. A mask clips the
+     filter output to the element box, which made the hover glow end in a
+     straight line and read as a lit square around the photo. */
+  filter:
+    drop-shadow(0 22px 30px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 28px rgba(255, 255, 255, 0));
+  transition: filter 200ms ease;
+}
+
+.picture-container:hover {
+  filter:
+    drop-shadow(0 22px 30px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 28px rgba(255, 255, 255, 0.26));
 }
 
 .hero-img {
@@ -33,7 +46,6 @@
   object-fit: contain;
   object-position: bottom center;
   transform-origin: bottom center;
-  filter: drop-shadow(0 26px 36px rgba(0, 0, 0, 0.55));
   /* The photo is a cut-out that ends abruptly at the hips, so the lower body is
      dissolved into the panel. This hides the straight crop line and reads as a
      portrait emerging from the dark instead of a torso stuck to the edge.
@@ -52,14 +64,11 @@
     rgba(0, 0, 0, 0.72) 14%,
     #000 26%
   );
-  transition:
-    transform 180ms ease,
-    filter 180ms ease;
+  transition: transform 180ms ease;
 }
 
 .hero-img:hover {
   transform: scale(1.02);
-  filter: drop-shadow(0 32px 48px rgba(255, 255, 255, 0.65));
 }
 
 /* RESPONSIVE (solo imagen) */
